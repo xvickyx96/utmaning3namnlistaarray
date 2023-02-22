@@ -1,0 +1,50 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<String> namnLista = new ArrayList<>();
+        System.out.println("Välkommen till den hemliga listan! Om du försätter hädanefter förväntas tystnadsplikt!");
+        boolean done = false;
+        while (!done) {
+        System.out.println("Hur kan jag stå till tjänst? Skriv 1 för lägga till namn, 2 för byta namn, 3 för radera namn och 4 för avsluta.");
+        int svar = scanner.nextInt();
+        scanner.nextLine();
+        if (svar == 1)
+        {
+            System.out.println("Vilket namn vill du lägga till?");
+            String namn = scanner.nextLine();
+            namnLista.add(namn);
+        }
+        else if (svar == 2) {
+            System.out.println("Dessa är alla namn som finns: " + namnLista + ". Vilket namn vill du ändra?");
+            String raderaNamn = scanner.nextLine();
+            if (namnLista.contains(raderaNamn)) {
+                namnLista.remove(raderaNamn);
+                System.out.println("Vilket namn vill du ändra till?");
+                String namn = scanner.nextLine();
+                namnLista.add(namn);
+                System.out.println(raderaNamn + " är nu ändrat till " + namn + ".");
+            };
+
+        }
+        else if (svar == 3) {
+            System.out.println("Dessa är alla namn som finns: " + namnLista + ". Vilket namn vill du radera?");
+            String raderaNamn = scanner.nextLine();
+            if (namnLista.contains(raderaNamn)) {
+                namnLista.remove(raderaNamn);
+                System.out.println(raderaNamn + " är nu borttaget.");
+            };
+        }
+        else if  (svar == 4){
+            done = true;
+            }
+        else {
+            System.out.println("Lär dig svenska tack!!");
+        }
+        }
+
+        System.out.println("Här är alla hemliga namn " + namnLista + ".");
+    }
+}
